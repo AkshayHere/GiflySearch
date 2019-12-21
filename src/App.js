@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, lazy, Suspense } from 'react';
 import './App.css';
-import Customers from './Customers'
-import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+
+const MainPage = (
+  lazy(() => (
+    import('./pages/MainPage')
+  ))
+)
 
 
 class App extends Component {
   render() {
-    console.log("Host URL"+process.env.PUBLIC_URL);
-    return (
 
-      <Router basename={process.env.PUBLIC_URL}>
+    return (
+      <BrowserRouter>
         <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Simple React App</h1>
-        </header>
-          <Switch>
-                <Route exact path= "/" render={() => (
-                  <Redirect to="/customerlist"/>
-                )}/>
-                 <Route exact path='/customerlist' component={Customers} />
-          </Switch>
-      </div>
-    </Router>
+          <Suspense fallback={<div></div>}>
+            <Switch>
+              <Route exact path={"/"} >
+                <MainPage />
+              </Route>  
+            </Switch>
+          </Suspense>
+        </div>
+        </BrowserRouter>
     );
   }
 }

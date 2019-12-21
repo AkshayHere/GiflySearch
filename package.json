@@ -4,12 +4,18 @@
   "private": true,
   "homepage": "https://aditya-sridhar.github.io/simple-reactjs-app",
   "dependencies": {
-    "axios": "^0.18.0",
-    "react": "^16.4.1",
+    "@material-ui/core": "^4.7.1",
+    "@material-ui/icons": "^4.5.1",
+    "axios": "^0.18.1",
+    "lodash": "^4.17.15",
+    "react": "^16.12.0",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^1.1.3"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -43,8 +43,6 @@ class FooterComponent extends Component {
                         </Typography>
                         </Grid>
                     </Grid>
-
-
                 </AppBar>
             </React.Fragment>
         );

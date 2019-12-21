@@ -112,6 +112,7 @@ class SearchPage extends Component {
                 {
                     !this.props.loading && this.props.images && (this.props.images.length > 0) &&
                     <Grid container className={classes.gridWrapper} spacing={4} direction="row" justify="center"
+                        style={{ marginBottom : "30px" }}
                         alignItems="center">
                         <Grid item xs={12} md={4} lg={2}>
                             <Button

@@ -16,10 +16,7 @@ export function* searchImages() {
 		
 		try {
 			window.store.dispatch({ type: SHOW_LOADER, payload: {} });
-
 			const response = yield call(requests.search);
-			console.log('response', response.data.data);
-
 			imagesList = response.data.data;
 
 			window.store.dispatch({ type: HIDE_LOADER, payload: {} });

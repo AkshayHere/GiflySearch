@@ -19,11 +19,11 @@ const requests = {
     return axios.get(url, {
     })
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         return response;
       })
       .catch(error => {
-        console.log(error.response)
+        // console.log(error.response)
       });
   }
 };

@@ -2,6 +2,7 @@
     "name": "gallereasy",
     "version": "0.1.8",
     "homepage": "https://github.com/AkshayHere/Gallereasy.git",
+    "author": "AkshayHere <akshymohn@gmail.com>",
     "dependencies": {
         "@material-ui/core": "^4.11.3",
         "@material-ui/icons": "^4.11.2",

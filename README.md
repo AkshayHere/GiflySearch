@@ -1,5 +1,7 @@
 # Gallereasy 
 
+[View in Netlify](https://dude-gallereasy.netlify.app/)
+
 ## Cloning and Running the Application in local
 
 Clone the project into local

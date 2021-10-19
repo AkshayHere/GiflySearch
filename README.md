@@ -20,9 +20,9 @@ npm start
 
 #### Resources
 
-[**axios**](https://github.com/axios/axios)
+[**Axios**](https://github.com/axios/axios)
 
-[**material-ui**](https://material-ui.com/)
+[**Material UI - V3**](https://material-ui.com/)
 
 [**Redux Saga - State Management** ](https://redux-saga.js.org/)
 

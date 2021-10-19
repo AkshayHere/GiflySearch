@@ -20,12 +20,12 @@ npm start
 
 #### Resources
 
-**axios** axios | HTTP Requests | https://github.com/axios/axios
+[**axios**](https://github.com/axios/axios)
 
-**material-ui** MATERIAL-UI  https://material-ui.com/
+[**material-ui**](https://material-ui.com/)
 
-**redux-saga** Redux Saga | State Management | https://redux-saga.js.org/
+[**Redux Saga - State Management** ](https://redux-saga.js.org/)
 
-**redux-logger** Redux Logger | Logging |  https://github.com/LogRocket/redux-logger
+[**Redux Logger**](https://github.com/LogRocket/redux-logger)
 
-**lodash** Lodash | JavaScript utility library | https://lodash.com/
+[**Lodash**](https://lodash.com/)

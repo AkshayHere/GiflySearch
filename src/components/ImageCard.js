@@ -26,6 +26,10 @@ const styles = () => ({
         position: 'relative',
         margin: "auto",
         objectFit: 'cover',
+        transition: "transform .2s ease-in-out", /* Animation */
+        "&:hover": {
+            transform: "scale3d(1.05, 1.05, 1)"
+        },
     },
 
     favorite: {

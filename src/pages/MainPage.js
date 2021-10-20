@@ -5,13 +5,12 @@ import Grid from '@material-ui/core/Grid';
 
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga';
-import { logger } from 'redux-logger';
 import { Provider } from 'react-redux';
 import reducer from '../redux/reducers';
 import rootSaga from '../redux/saga';
 
 import SearchPage from '../views/SearchPage';
-import FavouritesPage from '../views/FavouritesPage';
+import FavoritesPage from '../views/FavoritesPage';
 import HeaderComponent from '../components/HeaderComponent';
 import FooterComponent from '../components/FooterComponent';
 
@@ -42,7 +41,7 @@ class MainPage extends Component {
   }
 
   componentDidMount(){
-    document.title = "Gallereasy"
+    document.title = "Gifly Search"
   }
 
   handleAppBarChange = (id) => {
@@ -70,8 +69,8 @@ class MainPage extends Component {
                 <SearchPage />
               }
               {
-                displayPage && displayPage == "favourites" &&
-                <FavouritesPage />
+                displayPage && displayPage == "favorites" &&
+                <FavoritesPage />
               }
             </Grid>
             <FooterComponent />
@@ -81,5 +80,9 @@ class MainPage extends Component {
     );
   }
 }
+
+MainPage.propTypes = {
+  classes: PropTypes.any
+};
 
 export default withStyles(styles)(MainPage);

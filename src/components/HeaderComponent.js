@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import classNames from "classnames";
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -23,7 +22,12 @@ const mapDispatchToStore = (dispatch) => {
     }
 }
 
-const styles = theme => ({
+const styles = () => ({
+    buttons :{
+        display: "block",
+        marginRight: 0,
+        marginLeft: "auto"
+    }
 });
 
 
@@ -50,21 +54,23 @@ class HeaderComponent extends Component {
                 <AppBar position="static" color="primary">
                     <Toolbar>
                         <Typography variant="h4" className={classes.title}>
-                        Galler<strong>easy</strong> |
+                            <strong>Gifly</strong>Search
                         </Typography>
-                        <Button color="inherit" onClick={this.handleAppBarChange}>
-                        <Typography id={"search"} variant="h5" className={classes.title}>
-                            {displayPage == "search" ? <strong>Search</strong> : "Search" } 
-                        </Typography>
-                        </Button>
-                        <Button color="inherit" onClick={this.handleAppBarChange}>
-                        <Typography id={"favourites"} variant="h5" className={classes.title}>
-                            {displayPage == "favourites" ? <strong>Favourites</strong> : "Favourites" } 
-                            { this.props.favImages.length > 0 && "("+this.props.favImages.length+")" }
-                        </Typography>
-                        </Button>
+                        <div className={classes.buttons}>
+                            <Button color="inherit" onClick={this.handleAppBarChange}>
+                                <Typography id={"search"} variant="h5" className={classes.title}>
+                                    {displayPage == "search" ? <strong><i>Search</i></strong> : "Search"}
+                                </Typography>
+                            </Button>
+                            <Button color="inherit" onClick={this.handleAppBarChange}>
+                                <Typography id={"favorites"} variant="h5" className={classes.title}>
+                                    {displayPage == "favorites" ? <strong><i>Favorites</i></strong> : "Favorites"}
+                                    {this.props.favImages.length > 0 && "(" + this.props.favImages.length + ")"}
+                                </Typography>
+                            </Button>
+                        </div>
                     </Toolbar>
-                    </AppBar>
+                </AppBar>
             </React.Fragment>
         );
     }
@@ -72,6 +78,10 @@ class HeaderComponent extends Component {
 
 //Define the Properties Type
 HeaderComponent.propTypes = {
+    classes: PropTypes.any,
+    displayPage: PropTypes.any,
+    handleAppBarChange: PropTypes.func,
+    favImages: PropTypes.any,
 };
 
 HeaderComponent.defaultProps = {

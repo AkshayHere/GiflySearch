@@ -1,6 +1,6 @@
 import React, { Component, lazy, Suspense } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 const MainPage = (
   lazy(() => (

@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
-
+import PropTypes from 'prop-types';
 import ImageCard from '../components/ImageCard';
-
 import { connect } from 'react-redux';
 import { setFavorites } from '../redux/actions'
 
@@ -30,7 +29,7 @@ const styles = {
 // wip
 // need to add a fetch more button to show initially the first 8 items and show more accordingly
 
-class FavouritesPage extends Component {
+class FavoritesPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,7 +51,7 @@ class FavouritesPage extends Component {
               alignItems="center">
               <Grid item xs={12}>
                 <Typography variant="h3" className={classes.title}>
-                  No Favourites yet !
+                  No Favorites yet !
                 </Typography>
               </Grid>
             </Grid>
@@ -76,4 +75,9 @@ class FavouritesPage extends Component {
   }
 }
 
-export default withStyles(styles)(connect(mapStoreStateToProps, mapDispatchToStore)(FavouritesPage));
+FavoritesPage.propTypes = {
+  classes: PropTypes.any,
+  favImages: PropTypes.any,
+};
+
+export default withStyles(styles)(connect(mapStoreStateToProps, mapDispatchToStore)(FavoritesPage));

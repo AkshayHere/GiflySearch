@@ -1,16 +1,11 @@
 
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import classNames from "classnames";
 import PropTypes from 'prop-types';
 import Card from "@material-ui/core/Card";
 import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
 import { find } from 'lodash';
-
 import { connect } from 'react-redux';
 import { setFavorites } from '../redux/actions'
 
@@ -26,7 +21,7 @@ const mapDispatchToStore = (dispatch) => {
     }
 }
 
-const styles = theme => ({
+const styles = () => ({
     card: {
         position: 'relative',
         margin: "auto",
@@ -72,7 +67,7 @@ class ImageCard extends Component {
         };
     }
 
-    handleFavClick = () => {
+    handleFavClick(){
         const { config } = this.props;
 
         let payload = config;
@@ -114,6 +109,11 @@ class ImageCard extends Component {
 
 //Define the Properties Type
 ImageCard.propTypes = {
+    classes: PropTypes.any,
+    config: PropTypes.func,
+    setFavorites: PropTypes.func,
+    favImages: PropTypes.string,
+    disableFavButton: PropTypes.func,
 };
 
 ImageCard.defaultProps = {

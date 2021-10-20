@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import axios from "axios";
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Typography from "@material-ui/core/Typography";
-
+import PropTypes from 'prop-types';
 import LoaderComponent from '../components/LoaderComponent';
 import ImageCard from '../components/ImageCard';
-
 import { connect } from 'react-redux';
 import { setSearchParam, searchImages, setOffset } from '../redux/actions'
 
@@ -75,7 +72,7 @@ class SearchPage extends Component {
                     <Grid item xs={12} md={8}>
                         <TextField
                             size="large" fullWidth
-                            inputProps={{ style: { height: "30px", fontSize: "30px" }, placeholder: "Start Searching for Images!" }}
+                            inputProps={{ style: { height: "30px", fontSize: "25px" }, placeholder: "Start Searching for Images!" }}
                             onChange={this.handleChange}
                             value={this.props.searchParams}
                         />
@@ -112,7 +109,7 @@ class SearchPage extends Component {
                 {
                     !this.props.loading && this.props.images && (this.props.images.length > 0) &&
                     <Grid container className={classes.gridWrapper} spacing={4} direction="row" justify="center"
-                        style={{ marginBottom : "30px" }}
+                        style={{ marginBottom: "30px" }}
                         alignItems="center">
                         <Grid item xs={12} md={4} lg={2}>
                             <Button
@@ -127,5 +124,17 @@ class SearchPage extends Component {
         );
     }
 }
+
+SearchPage.propTypes = {
+    classes: PropTypes.any,
+    searchImages: PropTypes.any,
+    offset: PropTypes.any,
+    setOffset: PropTypes.any,
+    searchParams: PropTypes.any,
+    setSearchParam: PropTypes.any,
+    images: PropTypes.any,
+    loading: PropTypes.bool,
+};
+
 
 export default withStyles(styles)(connect(mapStoreStateToProps, mapDispatchToStore)(SearchPage));

@@ -13,10 +13,10 @@ import {
 
 let initialState = {
   loading: false,
-  searchParams : "",
-  offset : 0,
-  images : [],
-  favImages : []
+  searchParams: "",
+  offset: 0,
+  images: [],
+  favImages: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,29 +28,31 @@ const reducer = (state = initialState, action) => {
 
     case GET_SEARCH_IMAGES:
       return { ...state };
-    
+
     case SET_IMAGES:
       return { ...state, images: action.payload };
 
     case SET_SEARCH_PARAM:
       return { ...state, searchParams: action.payload };
-    
+
     case SET_OFFSET:
       return { ...state, offset: action.payload };
 
     case SET_FAVORITES:
-      let existingFavs = state.favImages;
-      let newFavs = [action.payload]
-      newFavs = unionBy(existingFavs, newFavs, 'id');
-			return mergeWith({}, state, {
-				favImages: newFavs
-			});
+      {
+        let existingFavs = state.favImages;
+        let newFavs = [action.payload]
+        newFavs = unionBy(existingFavs, newFavs, 'id');
+        return mergeWith({}, state, {
+          favImages: newFavs
+        });
+      }
 
     case SHOW_LOADER:
-      return {...state, loading: true };
+      return { ...state, loading: true };
 
     case HIDE_LOADER:
-      return {...state, loading: false };
+      return { ...state, loading: false };
 
     default:
       return state;

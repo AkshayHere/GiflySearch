@@ -23,7 +23,7 @@ const requests = {
         return response;
       })
       .catch(error => {
-        // console.log(error.response)
+        console.error(error);
       });
   }
 };

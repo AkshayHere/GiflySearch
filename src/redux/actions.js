@@ -1,7 +1,5 @@
 
 import{
-    GET_NEWS,
-    NEWS_RECEIVED,
     GET_SEARCH_IMAGES,
     SET_SEARCH_PARAM,
     SET_FAVORITES,

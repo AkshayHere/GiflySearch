@@ -1,6 +1,6 @@
 # Gallereasy 
 
-<a href="https://gifly-search.netlify.app/" target="_blank">View in Netlify</a>
+[View in Netlify](https://gifly-search.netlify.app/){:target="_blank"}
 
 ## Cloning and Running the Application in local
 

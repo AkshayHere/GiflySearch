@@ -1,6 +1,6 @@
 # Gallereasy 
 
-[View in Netlify](https://dude-gallereasy.netlify.app/)
+[View in Netlify](https://gifly-search.netlify.app/)
 
 ## Cloning and Running the Application in local
 

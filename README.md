@@ -1,4 +1,4 @@
-# Gallereasy 
+#  GiflySearch 
 
 [View in Netlify](https://gifly-search.netlify.app/)
 

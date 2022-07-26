@@ -4,8 +4,7 @@
 /node_modules
 .vscode
 /build
-
-# misc
+.github/
 .DS_Store
 .env*
 

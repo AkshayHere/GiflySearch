@@ -29,3 +29,7 @@ npm start
 [**Redux Logger**](https://github.com/LogRocket/redux-logger)
 
 [**Lodash**](https://lodash.com/)
+
+[Latest release changes *](https://nodejs.dev/learn/update-all-the-nodejs-dependencies-to-their-latest-version#update-all-packages-to-the-latest-version)
+
+

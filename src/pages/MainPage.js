@@ -63,7 +63,7 @@ class MainPage extends Component {
         <div className={classes.pageWrapper}>
           <Provider store={store}>
             <HeaderComponent displayPage={displayPage} handleAppBarChange={this.handleAppBarChange} />
-            <Grid container direction="row" justify="center" alignItems="center">
+            <Grid container direction="row" justifyContent="center" alignItems="center">
               {
                 displayPage && displayPage == "search" &&
                 <SearchPage />

@@ -2,7 +2,7 @@ import React, { Component, lazy, Suspense } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const MainPage = lazy(() => import("./pages/MainPage"));
+const MainPage = lazy(() => import("./pages/MainPage.jsx"));
 
 class App extends Component {
   render() {

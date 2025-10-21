@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga';
@@ -20,16 +18,8 @@ sagaMiddleware.run(rootSaga);
 
 window.store = store;
 
-const styles = {
-  root: {
-    flexGrow: 1
-  },
-  grow: {
-    flexGrow: 1
-  },
-  pageWrapper: {
-    overflow: "hidden"
-  }
+const pageWrapperStyles = {
+  overflow: "hidden"
 };
 
 class MainPage extends Component {
@@ -55,12 +45,11 @@ class MainPage extends Component {
   }
 
   render() {
-    const { classes } = this.props;
     const { displayPage } = this.state;
 
     return (
       <React.Fragment>
-        <div className={classes.pageWrapper}>
+        <div style={pageWrapperStyles}>
           <Provider store={store}>
             <HeaderComponent displayPage={displayPage} handleAppBarChange={this.handleAppBarChange} />
             <Grid container direction="row" justifyContent="center" alignItems="center">
@@ -81,8 +70,6 @@ class MainPage extends Component {
   }
 }
 
-MainPage.propTypes = {
-  classes: PropTypes.any
-};
+MainPage.propTypes = {};
 
-export default withStyles(styles)(MainPage);
+export default MainPage;

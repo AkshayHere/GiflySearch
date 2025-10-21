@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 
 import { connect } from "react-redux";
 import { setFavorites } from "../redux/actions";
@@ -21,13 +21,13 @@ const mapDispatchToStore = (dispatch) => {
   };
 };
 
-const styles = () => ({
-  buttons: {
+const StyledToolbar = styled(Toolbar)(() => ({
+  '& .buttons': {
     display: "block",
     marginRight: 0,
     marginLeft: "auto",
   },
-});
+}));
 
 class HeaderComponent extends Component {
   constructor(props) {
@@ -41,21 +41,20 @@ class HeaderComponent extends Component {
   };
 
   render() {
-    const { classes, displayPage } = this.props;
+    const { displayPage } = this.props;
 
     return (
       <React.Fragment>
         <AppBar position="static" color="primary">
-          <Toolbar>
-            <Typography variant="h4" className={classes.title}>
+          <StyledToolbar>
+            <Typography variant="h4" sx={{ flexGrow: 1 }}>
               <strong>Gifly</strong>Search
             </Typography>
-            <div className={classes.buttons}>
+            <div className="buttons">
               <Button color="inherit" onClick={this.handleAppBarChange}>
                 <Typography
                   id={"search"}
                   variant="h5"
-                  className={classes.title}
                 >
                   {displayPage == "search" ? (
                     <strong style={{ color: 'blue' }}>
@@ -70,7 +69,6 @@ class HeaderComponent extends Component {
                 <Typography
                   id={"favorites"}
                   variant="h5"
-                  className={classes.title}
                 >
                   {displayPage == "favorites" ? (
                     <strong>
@@ -84,7 +82,7 @@ class HeaderComponent extends Component {
                 </Typography>
               </Button>
             </div>
-          </Toolbar>
+          </StyledToolbar>
         </AppBar>
       </React.Fragment>
     );
@@ -93,7 +91,6 @@ class HeaderComponent extends Component {
 
 //Define the Properties Type
 HeaderComponent.propTypes = {
-  classes: PropTypes.any,
   displayPage: PropTypes.any,
   handleAppBarChange: PropTypes.func,
   favImages: PropTypes.any,
@@ -101,6 +98,4 @@ HeaderComponent.propTypes = {
 
 HeaderComponent.defaultProps = {};
 
-export default withStyles(styles, { withTheme: true })(
-  connect(mapStoreStateToProps, mapDispatchToStore)(HeaderComponent)
-);
+export default connect(mapStoreStateToProps, mapDispatchToStore)(HeaderComponent);

@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
-import { ButtonBase } from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
-import Grid from "@material-ui/core/Grid";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import { ButtonBase } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Grid from "@mui/material/Grid";
 
-const styles = () => ({
-  appBar: {
-    top: "auto",
-    bottom: 0,
-  },
-});
+const StyledAppBar = styled(AppBar)(() => ({
+  top: "auto",
+  bottom: 0,
+}));
 
 class FooterComponent extends Component {
   constructor(props) {
@@ -21,11 +18,9 @@ class FooterComponent extends Component {
   }
 
   render() {
-    const { classes } = this.props;
-
     return (
       <React.Fragment>
-        <AppBar className={classes.appBar} position="fixed" color="default">
+        <StyledAppBar position="fixed" color="default">
           <Grid
             container
             spacing={8}
@@ -66,17 +61,15 @@ class FooterComponent extends Component {
               </Typography>
             </Grid>
           </Grid>
-        </AppBar>
+        </StyledAppBar>
       </React.Fragment>
     );
   }
 }
 
 //Define the Properties Type
-FooterComponent.propTypes = {
-  classes: PropTypes.any,
-};
+FooterComponent.propTypes = {};
 
 FooterComponent.defaultProps = {};
 
-export default withStyles(styles, { withTheme: true })(FooterComponent);
+export default FooterComponent;

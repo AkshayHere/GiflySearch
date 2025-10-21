@@ -10,7 +10,7 @@ const requests = {
         if (offset)
             offsets = offset;
 
-        let url = `${process.env.REACT_APP_GIPHY_URL}search?api_key=${process.env.REACT_APP_GIPHY_KEY}&q=${searchParams}&limit=${limit}&offset=${offsets}&rating=G&lang=en`
+        let url = `${import.meta.env.VITE_GIPHY_URL}search?api_key=${import.meta.env.VITE_GIPHY_KEY}&q=${searchParams}&limit=${limit}&offset=${offsets}&rating=G&lang=en`
 
         return axios.get(url, {})
             .then(response => {

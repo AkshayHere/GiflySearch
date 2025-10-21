@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import LoaderComponent from "../components/LoaderComponent";
 import ImageCard from "../components/ImageCard";
@@ -27,11 +26,9 @@ const mapDispatchToStore = (dispatch) => {
   };
 };
 
-const styles = {
-  gridWrapper: {
-    flexGrow: 1,
-    margin: "10px",
-  },
+const gridWrapperStyles = {
+  flexGrow: 1,
+  margin: "10px",
 };
 
 class SearchPage extends Component {
@@ -62,7 +59,6 @@ class SearchPage extends Component {
   };
 
   render() {
-    const { classes } = this.props;
 
     return (
       <React.Fragment>
@@ -71,7 +67,7 @@ class SearchPage extends Component {
           spacing={4}
           direction="row"
           justifyContent="center"
-          className={classes.gridWrapper}
+          sx={gridWrapperStyles}
           alignItems="center"
         >
           <Grid item xs={12} md={8}>
@@ -93,14 +89,14 @@ class SearchPage extends Component {
           this.props.images.length === 0 && (
             <Grid
               container
-              className={classes.gridWrapper}
+              sx={gridWrapperStyles}
               spacing={4}
               direction="row"
               justifyContent="center"
               alignItems="center"
             >
               <Grid item xs={12}>
-                <Typography variant="h3" className={classes.title}>
+                <Typography variant="h3" sx={{ textAlign: 'center' }}>
                   No Images Found!
                 </Typography>
               </Grid>
@@ -109,7 +105,7 @@ class SearchPage extends Component {
         {!this.props.loading && (
           <Grid
             container
-            className={classes.gridWrapper}
+            sx={gridWrapperStyles}
             spacing={4}
             direction="row"
             justifyContent="center"
@@ -129,7 +125,7 @@ class SearchPage extends Component {
           this.props.images.length > 0 && (
             <Grid
               container
-              className={classes.gridWrapper}
+              sx={gridWrapperStyles}
               spacing={4}
               direction="row"
               justifyContent="center"
@@ -155,7 +151,6 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  classes: PropTypes.any,
   searchImages: PropTypes.any,
   offset: PropTypes.any,
   setOffset: PropTypes.any,
@@ -165,6 +160,4 @@ SearchPage.propTypes = {
   loading: PropTypes.bool,
 };
 
-export default withStyles(styles)(
-  connect(mapStoreStateToProps, mapDispatchToStore)(SearchPage)
-);
+export default connect(mapStoreStateToProps, mapDispatchToStore)(SearchPage);

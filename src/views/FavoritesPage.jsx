@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import ImageCard from "../components/ImageCard";
 import { connect } from "react-redux";
@@ -19,11 +18,9 @@ const mapDispatchToStore = (dispatch) => {
   };
 };
 
-const styles = {
-  gridWrapper: {
-    flexGrow: 1,
-    margin: "10px",
-  },
+const gridWrapperStyles = {
+  flexGrow: 1,
+  margin: "10px",
 };
 
 // wip
@@ -36,7 +33,6 @@ class FavoritesPage extends Component {
   }
 
   render() {
-    const { classes } = this.props;
 
     return (
       <React.Fragment>
@@ -45,20 +41,20 @@ class FavoritesPage extends Component {
           spacing={8}
           direction="row"
           justifyContent="center"
-          className={classes.gridWrapper}
+          sx={gridWrapperStyles}
           alignItems="center"
         >
           {this.props.favImages.length === 0 && (
             <Grid
               container
-              className={classes.gridWrapper}
+              sx={gridWrapperStyles}
               spacing={4}
               direction="row"
               justifyContent="center"
               alignItems="center"
             >
               <Grid item xs={12}>
-                <Typography variant="h3" className={classes.title}>
+                <Typography variant="h3" sx={{ textAlign: 'center' }}>
                   No Favorites yet !
                 </Typography>
               </Grid>
@@ -67,7 +63,7 @@ class FavoritesPage extends Component {
           {this.props.favImages && this.props.favImages.length > 0 && (
             <Grid
               container
-              className={classes.gridWrapper}
+              sx={gridWrapperStyles}
               spacing={4}
               direction="row"
               justifyContent="center"
@@ -87,10 +83,7 @@ class FavoritesPage extends Component {
 }
 
 FavoritesPage.propTypes = {
-  classes: PropTypes.any,
   favImages: PropTypes.any,
 };
 
-export default withStyles(styles)(
-  connect(mapStoreStateToProps, mapDispatchToStore)(FavoritesPage)
-);
+export default connect(mapStoreStateToProps, mapDispatchToStore)(FavoritesPage);

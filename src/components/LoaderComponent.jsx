@@ -1,33 +1,17 @@
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Grid from "@material-ui/core/Grid";
+import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
 import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 
-const styles = (theme) => ({
-  root: {
-    flexGrow: 1,
-    minHeight: "300px",
-  },
-  demo: {
-    height: 240,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    height: "100%",
-    color: theme.palette.text.secondary,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
-});
+const rootStyles = {
+  flexGrow: 1,
+  minHeight: "300px",
+};
 
 class LoaderComponent extends React.Component {
   render() {
-    const { classes } = this.props;
     return (
       <Grid
-        className={classes.root}
+        sx={rootStyles}
         container
         direction="row"
         justifyContent="center"
@@ -41,8 +25,6 @@ class LoaderComponent extends React.Component {
   }
 }
 
-LoaderComponent.propTypes = {
-  classes: PropTypes.any,
-};
+LoaderComponent.propTypes = {};
 
-export default withStyles(styles)(LoaderComponent);
+export default LoaderComponent;
